@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: ./gradlew assemble
+
+      - name: Test
+        run: ./gradlew test
